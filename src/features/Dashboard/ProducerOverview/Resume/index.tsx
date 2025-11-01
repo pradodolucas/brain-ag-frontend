@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 "use client";
+import { useRouter } from "next/navigation";
 import * as styles from "./styles";
 
 interface ResumeItemProps {
@@ -8,6 +9,7 @@ interface ResumeItemProps {
   value: string;
   subtitle: string;
   icon: React.ReactNode;
+  link?: string;
 }
 
 export const ResumeItem = ({
@@ -15,7 +17,9 @@ export const ResumeItem = ({
   title,
   value,
   subtitle,
+  link,
 }: ResumeItemProps) => {
+  const route = useRouter();
   return (
     <div css={styles.container}>
       <div css={styles.title.container}>
@@ -23,7 +27,16 @@ export const ResumeItem = ({
         <p css={styles.title.text}>{title}</p>
       </div>
       <p css={styles.text.value}>{value}</p>
-      <p css={styles.text.subtitle}>{subtitle}</p>
+      <p
+        onClick={() => {
+          if (link) {
+            route.push(link);
+          }
+        }}
+        css={[link ? styles.text.subtitleLink : styles.text.subtitle]}
+      >
+        {subtitle}
+      </p>
     </div>
   );
 };

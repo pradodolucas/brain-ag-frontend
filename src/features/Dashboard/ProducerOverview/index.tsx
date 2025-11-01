@@ -12,7 +12,7 @@ import { ResumeItem } from "@/features/Dashboard/ProducerOverview/Resume";
 import * as styles from "@/features/Dashboard/styles";
 import ChartAreaDivider from "./ChartAreaDivider";
 
-import { Grid2x2, Tractor, Users } from "lucide-react";
+import { Clover, Grid2x2, HeartHandshake, Tractor, Users } from "lucide-react";
 import { theme } from "@/styles/theme";
 
 interface ProducerOverviewProps {
@@ -33,8 +33,13 @@ export function ProducerOverview({
 
   return (
     <div css={styles.dashboard.container}>
+      <div css={styles.header.container}>
+        <HeartHandshake size={26} color={theme.colors.PRIMARY} />
+        <p css={styles.header.title}>Painel de Controle</p>
+      </div>
+
       <div css={styles.stats.container}>
-        <Panel _css={styles.stats.resume.container} title={"Resumo geral"}>
+        <Panel _css={styles.stats.resume.container}>
           <div css={styles.stats.resume.items.container}>
             <ResumeItem
               icon={<Grid2x2  color={theme.colors.GRAY} size={20}/>}
@@ -48,6 +53,7 @@ export function ProducerOverview({
               title="Fazendas"
               value={String(ProducerMetrics.getTotalFarms(producers))}
               subtitle="Ver detalhes"
+              link="/farm"
             />
 
             <ResumeItem
@@ -55,6 +61,7 @@ export function ProducerOverview({
               title="Agricultores"
               value={String(ProducerMetrics.getTotalProducers(producers))}
               subtitle="Ver detalhes"
+              link="/producer"
             />
           </div>
         </Panel>

@@ -3,6 +3,25 @@
 import { theme } from "@/styles/theme";
 import { css } from "@emotion/react";
 
+const header = {
+  container: css`
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    align-items: end;
+  `,
+  title: css`
+  font-size: 1.2rem;
+  color: ${theme.colors.GRAY_DARK}
+  font-weigth: 600;
+`,
+  interval: css`
+    font-size: 1rem;
+    color: ${theme.colors.GRAY};
+  `,
+};
+
 const dashboard = {
   container: css`
     display: flex;
@@ -22,6 +41,7 @@ const stats = {
       flex: 1;
       display: flex;
       flex-direction: column;
+      gap:1rem;
     `,
     items: {
       container: css`
@@ -39,4 +59,4 @@ const stats = {
   },
 };
 
-export { dashboard, stats };
+export { header, dashboard, stats };

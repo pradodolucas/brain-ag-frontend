@@ -2,7 +2,6 @@ import { CropProps } from "@/types/crop";
 import { ProducerProps } from "@/types/producer";
 import { ChartDataProps } from "@/types/chartData";
 
-
 export function groupCropsByState(
   crops: CropProps[],
   producers: ProducerProps[]
@@ -15,13 +14,15 @@ export function groupCropsByState(
     // Procurar em todos os producers e suas farms
     for (const producer of producers) {
       if (producer.farms) {
-        const farm = producer.farms.find(
-          (farm) => farm.id === crop.farmId
-        );
+        const farm = producer.farms.find((farm) => farm.id === crop.farmId);
         if (farm) {
           state = farm.state;
           break;
         }
+      }
+
+      if (state == "Unknown") {
+        console.log(crop);
       }
     }
 

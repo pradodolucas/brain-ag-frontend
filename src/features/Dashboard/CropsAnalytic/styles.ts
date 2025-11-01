@@ -3,6 +3,8 @@
 import { theme } from "@/styles/theme";
 import { css } from "@emotion/react";
 
+
+
 const container = css`
   display: flex;
   flex-direction: row;
@@ -18,7 +20,7 @@ const panel = {
 
   chart: css`
     height: 300px;
-  `
+  `,
 };
 
 export { container, panel };

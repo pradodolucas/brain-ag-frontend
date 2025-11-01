@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brain Agriculture - Frontend
 
-## Getting Started
+Sistema web para gestão de produtores rurais, suas propriedades e safras, desenvolvido com Next.js e TypeScript.
 
-First, run the development server:
+## 📚 Estrutura do Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+src/
+├── app/                    # Rotas e páginas (Next.js App Router)
+│   ├── layout.tsx         # Layout principal da aplicação
+│   ├── page.tsx           # Página inicial (Dashboard)
+│   ├── producer/          # Rotas de produtores
+│   └── farm/             # Rotas de fazendas
+├── components/            # Componentes reutilizáveis
+│   ├── Button/
+│   ├── Form/
+│   ├── List/
+│   ├── Modal/
+│   └── Panel/
+├── features/             # Funcionalidades específicas
+│   └── Dashboard/
+│       ├── ProducerOverview/
+│       └── CropsAnalytic/
+├── hooks/               # Hooks personalizados
+├── libs/               # Utilitários e funções auxiliares
+├── provider/           # Providers React (Theme, etc)
+├── store/             # Estado global (Redux)
+├── styles/            # Estilos globais e tema
+├── templates/         # Layouts de página
+└── types/             # Tipagem TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tecnologias
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** Next.js 16
+- **Linguagem:** TypeScript
+- **Estilização:** Emotion (CSS-in-JS)
+- **Formulários:** React Hook Form + Zod
+- **Estado Global:** Redux Toolkit
+- **Gráficos:** Recharts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Principais Funcionalidades
 
-## Learn More
+### Gestão de Produtores
+- Cadastro de Pessoa Física (CPF) e Jurídica (CNPJ)
+- Edição e exclusão de produtores
+- Listagem com busca e filtros
 
-To learn more about Next.js, take a look at the following resources:
+### Gestão de Propriedades
+- Cadastro de fazendas
+- Registro de área total e área agricultável
+- Vínculo com produtor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Dashboard
+- Visão geral de produtores e propriedades
+- Gráficos de distribuição de áreas
+- Estatísticas gerais
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💻 Como Executar
 
-## Deploy on Vercel
+1. **Instalação de dependências:**
+\`\`\`bash
+npm install
+\`\`\`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Desenvolvimento:**
+\`\`\`bash
+npm run dev
+\`\`\`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Build:**
+\`\`\`bash
+npm run build
+npm start
+\`\`\`
+
+## 📋 Padrões de Código
+
+### Organização de Imports
+```typescript
+// React e Next.js
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+
+// Components
+import { Button } from '@/components/Button'
+import { Modal } from '@/components/Modal'
+
+// Hooks e Utils
+import { useForm } from 'react-hook-form'
+import { callApi } from '@/libs/utils/webservice'
+
+// Types
+import { ProducerProps } from '@/types/producer'
+```
+
+### Estrutura de Componentes
+- Cada componente em sua pasta
+- index.tsx para o componente
+- styles.ts para estilização
+- types.ts quando necessário
+
+### Formulários
+- Validação com Zod
+- React Hook Form para gerenciamento
+- Feedback visual de erros

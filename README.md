@@ -44,12 +44,10 @@ src/
 ### Gestão de Produtores
 - Cadastro de Pessoa Física (CPF) e Jurídica (CNPJ)
 - Edição e exclusão de produtores
-- Listagem com busca e filtros
 
 ### Gestão de Propriedades
 - Cadastro de fazendas
 - Registro de área total e área agricultável
-- Vínculo com produtor
 
 ### Dashboard
 - Visão geral de produtores e propriedades
@@ -73,6 +71,22 @@ npm run dev
 npm run build
 npm start
 \`\`\`
+
+## Docker
+
+O projeto inclui configurações Docker para desenvolvimento e produção:
+
+### Desenvolvimento
+Para rodar em modo desenvolvimento com hot-reload:
+```bash
+docker-compose -f docker-compose.dev.yml up --build
+```
+
+### Produção
+Para rodar em modo produção:
+```bash
+docker-compose up --build
+```
 
 ## 📋 Padrões de Código
 

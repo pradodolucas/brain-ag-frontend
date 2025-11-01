@@ -2,20 +2,20 @@ version: '3.8'
 
 services:
   farm-management-web:
-    container_name: brain-ag-frontend
+    container_name: brain-ag-frontend-dev
     build:
       context: .
       dockerfile: Dockerfile
-      target: builder 
+      target: development
     ports:
-      - "3000:3000" 
+      - "3000:3000"
     volumes:
-      - .:/app 
-      - /app/node_modules 
+      - .:/app
+      - /app/node_modules
     environment:
       - NODE_ENV=development
       - NEXT_PUBLIC_API_URL=http://localhost:3001
-    restart: unless-stopped 
+    restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000"]
       interval: 30s
@@ -23,7 +23,7 @@ services:
       retries: 3
     command: npm run dev
     networks:
-      - farm-network 
+      - farm-network
 
 networks:
   farm-network:

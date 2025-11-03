@@ -118,3 +118,23 @@ import { ProducerProps } from '@/types/producer'
 - Validação com Zod
 - React Hook Form para gerenciamento
 - Feedback visual de erros
+
+
+### Observações
+
+Adorei desenvolver este projeto, foram três dias intensos de muito desenvolvimento.
+Por conta do prazo curto, não consegui implementar tudo o que havia planejado. Tomei algumas decisões que consumiram mais tempo do que o esperado, como criar todo o template e o sistema de estilos do zero, sem recorrer a bibliotecas de componentes ou utilitários de CSS.
+
+Gostaria de destacar que o resultado final não reflete completamente minha experiência e meu padrão de entrega em projetos reais. Embora o frontend atenda aos requisitos principais do desafio, algumas funcionalidades que estavam nos meus planos acabaram não sendo incluídas:
+
+- Mascaramento e validação dos números de CPF / CNPJ
+- Barra de pesquisa, filtros, ordenação e paginação dos registros
+- Shimmer loading e mensagens personalizadas de “registro não encontrado”
+- Melhorias nos feedback visuais nos formulários e mais alertas visuais para erros e confirmações de sucesso
+- Breadcrumbs e botões adicionais para melhorar a navegação
+- Dashboard nas telas de “Agricultores” e “Fazendas” com resumo de informações
+- Versão responsiva
+- Testes unitários para todos os componentes criados
+- Dados "mockados" independente do serviço de backend
+
+Muito obrigado pela oportunidade!
